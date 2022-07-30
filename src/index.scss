@@ -11,8 +11,22 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+input[type='number']{
+  height: 20px;
+  font-size: 20px;
+  width: 50px;
+  border: 1px solid gray;
+  border-radius: 6px;
+  outline: none;
+  padding: 14px 0 14px 30px;
+  &::-webkit-inner-spin-button{
+    display: none;
+  }
+}
 .App{
   display: flex;
+  flex-direction: column;
+  gap: 30px;
   justify-content: center;
   align-items: center;
   margin-top: 300px;

@@ -37,25 +37,25 @@ function App() {
 
           tableRow += buffer.repeat(calculateRowWidth(j) - 1) + j // номера столбцов больше 10
 
-        } else if (j === 0 && i >= 100) { // номера строк больше 10
+        } else if (j === 0 && i >= 100) { 
 
-          tableRow += buffer.repeat(calculateRowWidth(j) - 1) + i + '|'
+          tableRow += buffer.repeat(calculateRowWidth(j) - 1) + i + '|' // номера строк больше 100
 
-        } else if (j === 0 && i >= 10) { // номера строк больше/равных 10
+        } else if (j === 0 && i >= 10) { 
 
-          tableRow += buffer.repeat(calculateRowWidth(j)) + i + '|'
+          tableRow += buffer.repeat(calculateRowWidth(j)) + i + '|' // номера строк больше/равных 10
 
-        } else if (j === 0) { // номера остальных строк
+        } else if (j === 0) { 
 
-          tableRow += buffer.repeat(calculateRowWidth(j) + 1) + i + '|'
+          tableRow += buffer.repeat(calculateRowWidth(j) + 1) + i + '|' // номера остальных строк
 
-        } else if (calculateRowWidth(j) === 1 && calculateRowWidth(tableSize + 1) === 1) { //если ряд содержит только однозначные числа
+        } else if (calculateRowWidth(j) === 1 && calculateRowWidth(tableSize + 1) === 1) { 
 
-          tableRow += j * i + ' '
+          tableRow += j * i + ' ' //если ряд содержит только однозначные числа
 
         } else if (calculateRowWidth(j) === 1) { // оформление однозначных чисел
 
-          tableRow += buffer.repeat(calculateRowWidth(j) - 1) + j * i + ' '
+          tableRow += buffer.repeat(calculateRowWidth(j) - 1) + j * i + ' ' 
         } else if (calculateRowWidth(j) === 2) { // оформление двухзначных чисел
           if (j * i <= 9) {
             tableRow += buffer.repeat(calculateRowWidth(j) - 1) + j * i + ' '
@@ -91,7 +91,7 @@ function App() {
       if (i === 1) { // оформление горизонтального разделителя
         table += buffer + '-'.repeat(tableRow.length - 2) + '\n'
       }
-      table += tableRow + '\n'
+      table += tableRow + '\n' 
 
     }
 
@@ -107,6 +107,7 @@ function App() {
 
   return (
     <div className="App">
+      <label className='App__label'>Введите число, до которого необходимо отобразить таблицу умножения</label>
       <input type="number" value={multTableSize} onChange={(e) => {
         if (e.target.value === '') {
           setMultTableSize('')
