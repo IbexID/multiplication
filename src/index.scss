@@ -1,17 +1,15 @@
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu',
+    'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
 }
-input[type='number']{
+input[type='number'] {
   height: 20px;
   font-size: 20px;
   width: 50px;
@@ -19,11 +17,11 @@ input[type='number']{
   border-radius: 6px;
   outline: none;
   padding: 14px 0 14px 30px;
-  &::-webkit-inner-spin-button{
+  &::-webkit-inner-spin-button {
     display: none;
   }
 }
-.App{
+.App {
   display: flex;
   flex-direction: column;
   gap: 30px;
