@@ -80,7 +80,7 @@ function App() {
       if (i === 1) {
         // оформление горизонтального разделителя
 
-        table += buffer + '-'.repeat(tableRow.length - 2) + '\n'
+        table += buffer.repeat(2) + '-'.repeat(tableRow.length - 3) + '\n'
       }
       table += tableRow + '\n'
     }
