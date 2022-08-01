@@ -88,8 +88,22 @@ function App() {
     console.log(table)
   }
 
+  const tableHandler = (tableSize: string) =>{
+    if (Number(tableSize) > 53) {
+      if (
+        window.confirm(
+          'Вы точно хотите такую большую таблицу? Форматирование может быть некрасивым',
+        )
+      ) {
+        drawTable(Number(tableSize))
+      }
+    } else {
+      drawTable(Number(tableSize))
+    }
+  }
+
   useEffect(() => {
-    drawTable(Number(multTableSize))
+    tableHandler(multTableSize)
   }, [multTableSize])
 
   return (
