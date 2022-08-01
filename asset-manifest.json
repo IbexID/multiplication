@@ -1,13 +1,13 @@
 {
   "files": {
     "main.css": "/multiplication/static/css/main.a3d040cf.css",
-    "main.js": "/multiplication/static/js/main.f729b389.js",
+    "main.js": "/multiplication/static/js/main.c1514db2.js",
     "index.html": "/multiplication/index.html",
     "main.a3d040cf.css.map": "/multiplication/static/css/main.a3d040cf.css.map",
-    "main.f729b389.js.map": "/multiplication/static/js/main.f729b389.js.map"
+    "main.c1514db2.js.map": "/multiplication/static/js/main.c1514db2.js.map"
   },
   "entrypoints": [
     "static/css/main.a3d040cf.css",
-    "static/js/main.f729b389.js"
+    "static/js/main.c1514db2.js"
   ]
 }
