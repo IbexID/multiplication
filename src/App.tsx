@@ -7,7 +7,7 @@ function App() {
     if (tableSize <= 0) return
 
     // функция для определения ширины текущего ряда
-    const calculateRowWidth = (multiplier: number) => {
+    const calculateWidth = (multiplier: number) => {
       return (multiplier * tableSize).toString().length
     }
 
@@ -21,59 +21,18 @@ function App() {
         if (j === 0 && i === 0) {
           // пустая ячейка в оглавлении таблицы
 
-          tableRow += '   '
-        } else if (i === 0 && j > 0 && j < 10) {
-          // номера столбцов
-          tableRow += buffer.repeat(calculateRowWidth(j)) + j
-        } else if (i === 0 && j >= 10) {
-          // номера столбцов больше 10
-          tableRow += buffer.repeat(calculateRowWidth(j) - 1) + j
-        } else if (j === 0 && i >= 100) {
-          // номера строк больше 100
-          tableRow += buffer.repeat(calculateRowWidth(j) - 1) + i + '|'
-        } else if (j === 0 && i >= 10) {
-          // номера строк больше/равных 10
-          tableRow += buffer.repeat(calculateRowWidth(j)) + i + '|'
-        } else if (j === 0) {
-          // номера остальных строк
-          tableRow += buffer.repeat(calculateRowWidth(j) + 1) + i + '|'
-        } else if (calculateRowWidth(j) === 1 && calculateRowWidth(tableSize + 1) === 1) {
-          //если ряд содержит только однозначные числа
-          tableRow += j * i + ' '
-        } else if (calculateRowWidth(j) === 1) {
-          // оформление однозначных чисел
+          tableRow += '  '
 
-          tableRow += buffer.repeat(calculateRowWidth(j) - 1) + j * i + ' '
-        } else if (calculateRowWidth(j) === 2) {
-          // оформление двухзначных чисел
+        } else if (i === 0) { //оформление столбцов
 
-          if (j * i <= 9) {
-            tableRow += buffer.repeat(calculateRowWidth(j) - 1) + j * i + ' '
-          } else {
-            tableRow += j * i + ' '
-          }
-        } else if (calculateRowWidth(j) === 3) {
-          // оформление трехзначных чисел
+          tableRow += buffer.repeat(calculateWidth(j) - j.toString().length + 1) + j
+          
+        } else if (j === 0) { //оформление колонок
 
-          if (j * i <= 9) {
-            tableRow += buffer.repeat(calculateRowWidth(j) - 1) + j * i + ' '
-          } else if (j * i > 9 && j * i <= 99) {
-            tableRow += buffer + j * i + ' '
-          } else {
-            tableRow += j * i + ' '
-          }
-        } else if (calculateRowWidth(j) === 4) {
-          // оформление четырехзначных чисел
+          tableRow += buffer.repeat(calculateWidth(j) - i.toString().length + 1) + i + '|'
+        } else { //оформление результата в таблице
 
-          if (j * i <= 9) {
-            tableRow += buffer.repeat(calculateRowWidth(j) - 1) + j * i + ' '
-          } else if (j * i > 99 && j * i <= 999) {
-            tableRow += buffer + j * i + ' '
-          } else if (j * i > 9 && j * i <= 99) {
-            tableRow += buffer.repeat(calculateRowWidth(j) - 2) + j * i + ' '
-          } else {
-            tableRow += j * i + ' '
-          }
+          tableRow += buffer.repeat(calculateWidth(j) - (j * i).toString().length) + j * i + buffer
         }
       }
 
@@ -88,7 +47,7 @@ function App() {
     console.log(table)
   }
 
-  const tableHandler = (tableSize: string) =>{
+  const tableHandler = (tableSize: string) => {
     if (Number(tableSize) > 53) {
       if (
         window.confirm(
