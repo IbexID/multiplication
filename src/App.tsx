@@ -22,15 +22,16 @@ function App() {
           // пустая ячейка в оглавлении таблицы
 
           tableRow += '  '
-
-        } else if (i === 0) { //оформление столбцов
+        } else if (i === 0) {
+          //оформление столбцов
 
           tableRow += buffer.repeat(calculateWidth(j) - j.toString().length + 1) + j
-          
-        } else if (j === 0) { //оформление колонок
+        } else if (j === 0) {
+          //оформление колонок
 
           tableRow += buffer.repeat(calculateWidth(j) - i.toString().length + 1) + i + '|'
-        } else { //оформление результата в таблице
+        } else {
+          //оформление результата в таблице
 
           tableRow += buffer.repeat(calculateWidth(j) - (j * i).toString().length) + j * i + buffer
         }
